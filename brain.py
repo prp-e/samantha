@@ -61,7 +61,7 @@ max_encoder_seq_length = max([len(re.findall(r"[\w']+|[^\s\w]", input_doc)) for 
 max_decoder_seq_length = max([len(re.findall(r"[\w']+|[^\s\w]", target_doc)) for target_doc in target_docs])
 
 encoder_input_data = np.zeros(
-    (len(input_docs), max_decoder_seq_length, num_encoder_tokens),
+    (len(input_docs), max_encoder_seq_length, num_encoder_tokens),
     dtype='float32'
 )
 
