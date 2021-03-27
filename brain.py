@@ -1,5 +1,6 @@
 import numpy as np 
 import random
+import re 
 
 human_data = "human.txt"
 robot_data = "robot.txt"
@@ -14,4 +15,13 @@ print(f'Human chats: {len(human_chats)}, Robot chats: {len(robot_chats)}')
 
 pairs = list(zip(human_chats, robot_chats))
 
+input_docs = []
+target_docs = []
+input_tokens = set()
+target_tokens = set()
 
+for pair in pairs: 
+    input_doc, target_doc = pair[0], pair[1]
+    input_docs.append(input_doc)
+    target_doc = '<START> ' + target_doc + ' <END>'
+    target_docs.append(target_doc)
