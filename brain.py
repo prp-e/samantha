@@ -51,3 +51,6 @@ reverse_input_features_dict = dict(
 reverse_target_features_dict = dict(
     [(i, token) for i, token in target_features_dict.items()]
 )
+
+max_encoder_seq_length = max([len(re.findall(r"[\w']+|[^\s\w]", input_doc)) for input_doc in input_docs])
+max_decoder_seq_length = max([len(re.findall(r"[\w']+|[^\s\w]", target_doc)) for target_doc in target_docs])
