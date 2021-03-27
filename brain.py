@@ -36,6 +36,18 @@ for pair in pairs:
         if token not in target_tokens:
             target_tokens.add(token)
 
-print(input_tokens)
-print('____________________')
-print(target_tokens)
+input_features_dict = dict(
+    [(token, i) for i, token in enumerate(input_tokens)]
+)
+
+target_features_dict = dict(
+    [(token, i) for i, token in enumerate(target_tokens)]
+)
+
+reverse_input_features_dict = dict(
+    [(i, token) for i, token in input_features_dict.items()]
+)
+
+reverse_target_features_dict = dict(
+    [(i, token) for i, token in target_features_dict.items()]
+)
