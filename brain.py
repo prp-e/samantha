@@ -36,6 +36,11 @@ for pair in pairs:
         if token not in target_tokens:
             target_tokens.add(token)
 
+input_tokens = sorted(list(input_tokens))
+target_tokens = sorted(list(target_tokens))
+num_encoder_tokens = len(input_tokens)
+num_decoder_tokens = len(target_tokens)
+
 input_features_dict = dict(
     [(token, i) for i, token in enumerate(input_tokens)]
 )
@@ -54,3 +59,8 @@ reverse_target_features_dict = dict(
 
 max_encoder_seq_length = max([len(re.findall(r"[\w']+|[^\s\w]", input_doc)) for input_doc in input_docs])
 max_decoder_seq_length = max([len(re.findall(r"[\w']+|[^\s\w]", target_doc)) for target_doc in target_docs])
+
+encoder_input_data = np.zeros(
+    (len(input_docs), max_decoder_seq_length, num_encoder_tokens),
+    dtype='float32'
+)
