@@ -64,3 +64,13 @@ encoder_input_data = np.zeros(
     (len(input_docs), max_decoder_seq_length, num_encoder_tokens),
     dtype='float32'
 )
+
+decoder_input_data = np.zeros(
+    (len(input_docs), max_decoder_seq_length, num_decoder_tokens),
+    dtype='float32'
+)
+
+decoder_target_data = np.zeros(
+    (len(input_docs), max_decoder_seq_length, num_decoder_tokens),
+    dtype='float32'
+)
