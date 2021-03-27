@@ -1,6 +1,9 @@
 import numpy as np 
 import random
 import re 
+from tensorflow import keras 
+from keras.layers import Input, LSTM, Dense 
+from keras.models import Model
 
 human_data = "human.txt"
 robot_data = "robot.txt"
