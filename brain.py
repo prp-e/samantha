@@ -13,6 +13,9 @@ with open(robot_data) as chats_2:
 
 print(f'Human chats: {len(human_chats)}, Robot chats: {len(robot_chats)}')
 
+human_chats = [re.sub(r"\[w+\]", "سلام", chat) for chat in human_chats]
+robot_chats = [re.sub(r"\[w+\]", "سلام", chat) for chat in robot_chats]
+
 pairs = list(zip(human_chats, robot_chats))
 
 input_docs = []
@@ -25,3 +28,8 @@ for pair in pairs:
     input_docs.append(input_doc)
     target_doc = '<START> ' + target_doc + ' <END>'
     target_docs.append(target_doc)
+
+    for token in re.findall(r"[\w']+|[^\s\w]", input_doc):
+        input_tokens.add(token) 
+
+print(input_tokens)
