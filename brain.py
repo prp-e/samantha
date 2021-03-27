@@ -79,7 +79,7 @@ decoder_target_data = np.zeros(
 for line, (input_doc, target_doc) in enumerate(zip(input_docs, target_docs)):
     for timestep, token in enumerate(re.findall(r"[\w']+|[^\s\w]", input_doc)):
         encoder_input_data[line, timestep, input_features_dict[token]] = 1. 
-    for timestep, token in enumerate(re.findall(r"[\w']+|[^\s\w]", target_doc.split())):
+    for timestep, token in enumerate(target_doc.split()):
         decoder_target_data[line, timestep, target_features_dict[token]] = 1. 
         if timestep > 0: 
             decoder_target_data[line, timestep - 1, target_features_dict[token]] = 1.
