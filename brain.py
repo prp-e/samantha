@@ -26,10 +26,16 @@ target_tokens = set()
 for pair in pairs: 
     input_doc, target_doc = pair[0], pair[1]
     input_docs.append(input_doc)
+    target_doc = " ".join(re.findall(r"[\w']+|[^\s\w]", target_doc))
     target_doc = '<START> ' + target_doc + ' <END>'
     target_docs.append(target_doc)
 
     for token in re.findall(r"[\w']+|[^\s\w]", input_doc):
         input_tokens.add(token) 
+    for token in target_doc.split():
+        if token not in target_tokens:
+            target_tokens.add(token)
 
 print(input_tokens)
+print('____________________')
+print(target_tokens)
