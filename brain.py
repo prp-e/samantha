@@ -90,7 +90,7 @@ for line, (input_doc, target_doc) in enumerate(zip(input_docs, target_docs)):
 
 dimensionality = 256 
 batch_size = 10 
-epochs = 15000 
+epochs = 1500
 
 encoder_inputs = Input(shape=(None, num_encoder_tokens))
 encoder_lstm = LSTM(dimensionality, return_state=True)
