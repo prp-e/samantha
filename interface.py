@@ -1,5 +1,7 @@
-from keras.layers import Input
-from keras.models import load_model, Model
+from tensorflow import keras
+from keras.layers import Input, LSTM, Dense
+from keras.models import Model, load_model
+
 training_model = load_model('mind.h5')
 
 encoder_inputs = training_model.input[0]
