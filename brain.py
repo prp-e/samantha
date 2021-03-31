@@ -100,7 +100,7 @@ encoder_states = [state_hidden, state_cell]
 decoder_inputs = Input(shape=(None, num_decoder_tokens))
 decoder_lstm = LSTM(dimensionality, return_sequences=True, return_state=True)
 decoder_outputs, decoder_state_hidden, decoder_state_cell = decoder_lstm(decoder_inputs, initial_state=encoder_states)
-deocder_dense = Dense(num_decoder_tokens, activation='softmax')
+decoder_dense = Dense(num_decoder_tokens, activation='softmax')
 decoder_outputs = deocder_dense(decoder_outputs)
 
 training_model = Model([encoder_inputs, decoder_inputs], decoder_outputs)
