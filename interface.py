@@ -2,7 +2,7 @@ from tensorflow import keras
 from keras.layers import Input, LSTM, Dense
 from keras.models import Model, load_model
 
-from brain import decoder_dense, decoder_lstm, state_cell, state_hidden, decoder_inputs
+from brain import decoder_dense, decoder_lstm, state_cell, state_hidden, decoder_inputs, num_decoder_tokens, num_encoder_tokens
 
 training_model = load_model('mind.h5')
 
